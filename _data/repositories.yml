@@ -1,14 +1,9 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - louis1642
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - SINCROgroup/Sparse-shepherding-control-of-large-scale-multi-agent-systems-via-Reinforcement-Learning
+  - louis1642/MATLAB_figures_scripts
+  - valentinomario/HMM-Stock-Market-Prediction
