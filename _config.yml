@@ -185,15 +185,11 @@ newsletter:
 # -----------------------------------------------------------------------------
 
 collections:
-  books:
-    output: true
   news:
     defaults:
       layout: post
     output: true
   projects:
-    output: true
-  teachings:
     output: true
 
 # -----------------------------------------------------------------------------
@@ -240,6 +236,9 @@ exclude:
   - gems/
   - migrations/
   - vendor
+  - .jekyll-cache
+  - .tweet-cache
+  - .venv
 keep_files:
   - CNAME
   - .nojekyll
@@ -331,8 +330,6 @@ jekyll-archives:
       year: "/blog/:year/"
       tags: "/blog/:type/:name/"
       categories: "/blog/:type/:name/"
-  books:
-    enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
 
 display_tags: [] # blog tag links are disabled for this site.
 display_categories: [] # blog category links are disabled for this site.

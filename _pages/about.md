@@ -28,3 +28,4 @@ latest_posts:
 
 I am a young engineer and PhD student based in Napoli.
 I work on complex, multi-agent systems, learning-based solutions, and cross-scale operators.
+I am driven by curiosity and enthusiasm for science, technology, and the endless possibility they offer.
