@@ -29,6 +29,7 @@ RUN apt-get update -y && \
         inotify-tools \
         locales \
         nodejs \
+        npm \
         procps \
         python3-pip \
         zlib1g-dev && \

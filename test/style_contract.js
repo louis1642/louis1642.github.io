@@ -7,6 +7,34 @@ const read = (relPath) => fs.readFileSync(path.join(root, relPath), "utf8");
 const exists = (relPath) => fs.existsSync(path.join(root, relPath));
 const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
+// Load registered overrides from .al-folio-overrides.yml (simple YAML parsing)
+const overridePaths = new Set();
+const overridesFile = path.join(root, ".al-folio-overrides.yml");
+if (fs.existsSync(overridesFile)) {
+  const overridesContent = fs.readFileSync(overridesFile, "utf8");
+  // Extract paths from lines matching "  - path: <value>"
+  for (const match of overridesContent.matchAll(/^\s+-\s+path:\s+(.+)$/gm)) {
+    overridePaths.add(match[1].trim());
+  }
+}
+
+// Recursively list all files under a directory (relative to root)
+const listFilesRecursive = (dirRelPath) => {
+  const files = [];
+  const absDir = path.join(root, dirRelPath);
+  if (!fs.existsSync(absDir) || !fs.statSync(absDir).isDirectory()) return files;
+  const entries = fs.readdirSync(absDir, { withFileTypes: true });
+  for (const entry of entries) {
+    const rel = path.posix.join(dirRelPath, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...listFilesRecursive(rel));
+    } else {
+      files.push(rel);
+    }
+  }
+  return files;
+};
+
 const failures = [];
 
 const packageJson = JSON.parse(read("package.json"));
@@ -63,7 +91,20 @@ if (/gem 'al_math',\s*:git =>/.test(gemfile)) {
 
 for (const forbiddenPath of ["_includes", "_layouts", "_sass", "_scripts", "assets/tailwind", "tailwind.config.js", "assets/webfonts"]) {
   if (exists(forbiddenPath)) {
-    failures.push(`Starter must not own core component path \`${forbiddenPath}\`; move ownership to the corresponding gem.`);
+    // If every file under this path is a registered override, allow it
+    const absPath = path.join(root, forbiddenPath);
+    if (fs.statSync(absPath).isDirectory()) {
+      const allFiles = listFilesRecursive(forbiddenPath);
+      // Normalize to forward slashes for comparison
+      const unregistered = allFiles.filter((f) => !overridePaths.has(f.replace(/\\/g, "/")));
+      if (unregistered.length > 0) {
+        failures.push(
+          `Starter must not own core component path \`${forbiddenPath}\`; move ownership to the corresponding gem. Unregistered files: ${unregistered.join(", ")}`
+        );
+      }
+    } else if (!overridePaths.has(forbiddenPath)) {
+      failures.push(`Starter must not own core component path \`${forbiddenPath}\`; move ownership to the corresponding gem.`);
+    }
   }
 }
 

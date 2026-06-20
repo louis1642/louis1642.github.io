@@ -13,8 +13,8 @@ cv:
   custom_connections:
   sections:
     About me:
-      - 'I am a young engineer and PhD student based in Napoli. I work on complex, multi-agent systems, learning-based solutions, and cross-scale operators.'
-      - 'I am driven by curiosity and enthusiasm for science, technology, and the endless possibility they offer.'
+      - "I am a young engineer and PhD student based in Napoli. I work on complex, multi-agent systems, learning-based solutions, and cross-scale operators."
+      - "I am driven by curiosity and enthusiasm for science, technology, and the endless possibility they offer."
     Education:
       - institution: Scuola Superiore Meridionale
         area: Modeling and Engineering Risk and Complexity
@@ -25,9 +25,9 @@ cv:
         location: Napoli, Italy
         summary:
         highlights:
-          - 'Project title: Certified Cross-Scale Bridges for Multiscale Control of Large-Scale Multiagent Systems via Physics-Informed Learning and Neural Operators'
-          - 'Supervisors: Prof. Mario di Bernardo, Prof. Costantinos Siettos, Davide Salzano (PhD)'
-          - 'Keywords: multi-scale control, multi-agent systems, micro-macro bridges, physics-informed learning, mean-field control'
+          - "Project title: Certified Cross-Scale Bridges for Multiscale Control of Large-Scale Multiagent Systems via Physics-Informed Learning and Neural Operators"
+          - "Supervisors: Prof. Mario di Bernardo, Prof. Costantinos Siettos, Davide Salzano (PhD)"
+          - "Keywords: multi-scale control, multi-agent systems, micro-macro bridges, physics-informed learning, mean-field control"
 
       - institution: Università degli Studi di Napoli Federico II
         area: Automation and Robotics Engineering
@@ -38,10 +38,10 @@ cv:
         location: Napoli, Italy
         summary:
         highlights:
-          - 'Thesis: Learning-based multiscale shepherding control for multi-agent complex systems'
-          - 'Supervisors: Prof. Mario di Bernardo, Davide Salzano (PhD), Italo Napolitano'
-          - 'Final grade: 110/110 cum laude'
-          - 'GPA: 29.50/30'
+          - "Thesis: Learning-based multiscale shepherding control for multi-agent complex systems"
+          - "Supervisors: Prof. Mario di Bernardo, Davide Salzano (PhD), Italo Napolitano"
+          - "Final grade: 110/110 cum laude"
+          - "GPA: 29.50/30"
           - |
             **Main themes covered:**
             - Optimal Control Theory
@@ -72,10 +72,10 @@ cv:
         location: Napoli, Italy
         summary:
         highlights:
-          - 'Thesis: Neural Networks for Instance Segmentation'
-          - 'Supervisor: Prof. Giovanni Poggi'
-          - 'Final grade: 110/110 cum laude'
-          - 'GPA: 29.24/30'
+          - "Thesis: Neural Networks for Instance Segmentation"
+          - "Supervisor: Prof. Giovanni Poggi"
+          - "Final grade: 110/110 cum laude"
+          - "GPA: 29.24/30"
           - |
             **Main themes covered:**
             - Fundamentals (calculus, physics, linear algebra, etc.)
@@ -92,11 +92,11 @@ cv:
         summary:
         highlights:
           - Backend developer for websites with databases
-          - 'Main langages used: PHP, MySQL'
+          - "Main langages used: PHP, MySQL"
     Publications:
-      - title: 'Sparse shepherding control of large-scale multi-agent systems via Reinforcement Learning'
+      - title: "Sparse shepherding control of large-scale multi-agent systems via Reinforcement Learning"
         authors:
-          - '*Luigi Catello*'
+          - "*Luigi Catello*"
           - Italo Napolitano
           - Davide Salzano
           - Mario di Bernardo

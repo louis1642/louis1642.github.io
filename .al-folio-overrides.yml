@@ -1,0 +1,8 @@
+# al-folio override registry
+# Files listed here are intentional local overrides of gem-provided templates.
+# The style contract test allows these paths to exist in the starter repo.
+
+overrides:
+  - path: _includes/cv/render.liquid
+    gem: al_folio_cv
+    reason: Custom CV rendering template with RenderCV YAML format support

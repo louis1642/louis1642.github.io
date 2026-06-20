@@ -11,6 +11,7 @@ cleanup() {
 trap cleanup EXIT
 
 cat >"${tmp_override}" <<'YAML'
+permalink: /blog/:year/:title/
 giscus:
   repo: alshedivat/al-folio
   repo_id: R_kgDOExample
