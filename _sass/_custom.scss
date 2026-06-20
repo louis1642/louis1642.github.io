@@ -1,0 +1,17 @@
+// Sticky footer layout rules when footer_fixed is false (body.sticky-bottom-footer)
+body.sticky-bottom-footer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  // Let the main content container expand to fill all vertical space
+  > .container,
+  > .post {
+    flex: 1 0 auto;
+  }
+}
+
+// Override bootstrap's sticky-bottom position to let flexbox handle vertical alignment cleanly
+footer.sticky-bottom {
+  position: static !important;
+}

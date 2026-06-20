@@ -12,9 +12,30 @@ const overridePaths = new Set();
 const overridesFile = path.join(root, ".al-folio-overrides.yml");
 if (fs.existsSync(overridesFile)) {
   const overridesContent = fs.readFileSync(overridesFile, "utf8");
-  // Extract paths from lines matching "  - path: <value>"
+  // Extract paths from lines matching "  - path: <value>" (array format)
   for (const match of overridesContent.matchAll(/^\s+-\s+path:\s+(.+)$/gm)) {
     overridePaths.add(match[1].trim());
+  }
+  // Extract paths from keys of the hash format (e.g. "  _includes/cv/render.liquid:")
+  // We look for lines under "overrides:" that start with two spaces and end with ":"
+  let inOverridesBlock = false;
+  for (const line of overridesContent.split(/\r?\n/)) {
+    if (/^overrides:\s*$/.test(line)) {
+      inOverridesBlock = true;
+      continue;
+    }
+    if (inOverridesBlock) {
+      if (line.trim() === "" || line.startsWith("#")) continue;
+      if (/^\S/.test(line)) {
+        // Line with no leading spaces means we left the overrides block
+        inOverridesBlock = false;
+        continue;
+      }
+      const hashMatch = line.match(/^  ([a-zA-Z0-9_\-\./]+):\s*$/);
+      if (hashMatch) {
+        overridePaths.add(hashMatch[1].trim());
+      }
+    }
   }
 }
 
