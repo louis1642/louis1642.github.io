@@ -7,18 +7,18 @@ overrides:
     upstream_path: templates/cv/render.liquid
     upstream_sha256: 89c9ce23250ace91325d69ae0b8fab67ecc31466de1f09f91958c745e98a2324
     local_sha256: 8c8bce0cede7e0ec5d56b1e99c7f7002085d63c5628baaff69e8c55d519aeef5
-    acknowledged_at: '2026-06-20'
+    acknowledged_at: "2026-06-20"
   assets/css/main.scss:
     owner: al_folio_core
     gem_version: 1.0.11
     upstream_path: assets/css/main.scss
     upstream_sha256: 437c6c911c596391413e435dc0ea7095e682e85c572c1fd3fff69f9597455b3e
     local_sha256: 6d7299e4b03d868755f290ee60c1ddba48573514881f5e2c04a3ee2e02fdf6e4
-    acknowledged_at: '2026-06-20'
+    acknowledged_at: "2026-06-20"
   _sass/_custom.scss:
     owner: al_folio_core
     gem_version: 1.0.11
     upstream_path: _sass/_custom.scss
     upstream_sha256: ""
     local_sha256: ""
-    acknowledged_at: '2026-06-20'
+    acknowledged_at: "2026-06-20"
