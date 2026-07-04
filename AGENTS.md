@@ -47,6 +47,8 @@ docker compose down
 
 Docker note: v1 uses `/srv/jekyll/bin/entry_point.sh` and serves from container-local `/tmp/_site` to avoid host bind-mount write deadlocks.
 
+Note: most of the commands need to be run from inside the Docker container.
+
 ## Agent Routing Rules
 
 - If change is starter wiring/docs/integration/visual testing: edit here.
