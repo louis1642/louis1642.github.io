@@ -8,6 +8,13 @@ overrides:
     upstream_sha256: 89c9ce23250ace91325d69ae0b8fab67ecc31466de1f09f91958c745e98a2324
     local_sha256: 8c8bce0cede7e0ec5d56b1e99c7f7002085d63c5628baaff69e8c55d519aeef5
     acknowledged_at: '2026-06-20'
+  _includes/plugins/al_cookie_scripts.liquid:
+    owner: al_folio_core
+    gem_version: 1.0.11
+    upstream_path: _includes/plugins/al_cookie_scripts.liquid
+    upstream_sha256: 20281d809141861b5d70c71df2be34f0023f95c96a06db388fa8ff9a0b6cbe4f
+    local_sha256: 0a20173061ef7a40da156f28df84c401f51dd1e213c4229be266971ce4b6272c
+    acknowledged_at: '2026-07-04'
   _includes/scripts.liquid:
     owner: al_folio_core
     gem_version: 1.0.11
@@ -22,6 +29,13 @@ overrides:
     upstream_sha256: ''
     local_sha256: ''
     acknowledged_at: '2026-06-20'
+  assets/al_cookie/js/cookie-theme-sync.js:
+    owner: al_cookie
+    gem_version: 1.0.0
+    upstream_path: lib/assets/al_cookie/js/cookie-theme-sync.js
+    upstream_sha256: ca0f06c091d7d668ffd900669b38344799825f4bb8a23746eb1188175a2ed6e1
+    local_sha256: ca0f06c091d7d668ffd900669b38344799825f4bb8a23746eb1188175a2ed6e1
+    acknowledged_at: '2026-07-04'
   assets/css/main.scss:
     owner: al_folio_core
     gem_version: 1.0.11

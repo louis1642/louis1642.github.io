@@ -1,0 +1,117 @@
+{% assign cookieconsent = site.third_party_libraries['vanilla-cookieconsent'] %}
+
+<script
+  defer
+  src="{{ cookieconsent.url.js }}"
+  integrity="{{ cookieconsent.integrity.js }}"
+  crossorigin="anonymous"
+></script>
+<script defer src="{{ '/assets/al_cookie/js/cookie-theme-sync.js' | relative_url }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  if (typeof window.gtag !== 'function') {
+    window.gtag = function () {
+      window.dataLayer.push(arguments);
+    };
+  }
+
+  var gtag = window.gtag;
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    functionality_storage: 'denied',
+    personalization_storage: 'denied',
+  });
+
+  var cookieConsentRetryCount = 0;
+  var COOKIE_CONSENT_MAX_RETRIES = 50;
+
+  function initializeCookieConsent() {
+    if (!window.CookieConsent) {
+      if (cookieConsentRetryCount++ < COOKIE_CONSENT_MAX_RETRIES) {
+        setTimeout(initializeCookieConsent, 100);
+      } else {
+        console.error('CookieConsent library failed to load');
+      }
+      return;
+    }
+
+    window.CookieConsent.run({
+      categories: {
+        necessary: {
+          enabled: true,
+          readOnly: true,
+        },
+        analytics: {},
+      },
+      language: {
+        default: 'en',
+        translations: {
+          en: {
+            consentModal: {
+              title: 'We use cookies',
+              description:
+                'This website uses cookies to improve your experience and analyze site traffic. By clicking "Accept all", you consent to our use of cookies.',
+              acceptAllBtn: 'Accept all',
+              acceptNecessaryBtn: 'Reject all',
+              showPreferencesBtn: 'Manage Individual preferences',
+            },
+            preferencesModal: {
+              title: 'Manage cookie preferences',
+              acceptAllBtn: 'Accept all',
+              acceptNecessaryBtn: 'Reject all',
+              savePreferencesBtn: 'Accept current selection',
+              closeIconLabel: 'Close dialog',
+              sections: [
+                {
+                  title: 'Cookie usage',
+                  description:
+                    'We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want.',
+                },
+                {
+                  title: 'Strictly Necessary cookies',
+                  description:
+                    'These cookies are essential for the proper functioning of the website. Without these cookies, the website would not work properly.',
+                  linkedCategory: 'necessary',
+                },
+                {
+                  title: 'Analytics cookies',
+                  description: 'These cookies allow us to measure traffic and analyze your behavior to improve our service.',
+                  linkedCategory: 'analytics',
+                },
+                {
+                  title: 'More information',
+                  description:
+                    'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="{{ site.url }}{{ site.baseurl }}/#contact">contact us</a>.',
+                },
+              ],
+            },
+          },
+        },
+      },
+      onFirstConsent: updateConsentMode,
+      onConsent: updateConsentMode,
+      onChange: updateConsentMode,
+    });
+
+    function updateConsentMode() {
+      var analyticsGranted = window.CookieConsent.acceptedCategory('analytics');
+
+      gtag('consent', 'update', {
+        analytics_storage: analyticsGranted ? 'granted' : 'denied',
+        ad_storage: 'denied',
+        functionality_storage: 'denied',
+        personalization_storage: 'denied',
+      });
+
+      if (analyticsGranted) {
+        console.debug('Analytics consent granted; tracking enabled for configured providers.');
+      } else {
+        console.debug('Analytics consent denied; tracking remains blocked.');
+      }
+    }
+  }
+
+  initializeCookieConsent();
+</script>
