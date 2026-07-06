@@ -1,11 +1,11 @@
 metadata:
-  last_updated: '2026-06-17'
+  last_updated: '2026-07-06'
 papers:
   7Cfdq-MAAAAJ:u-x6o8ySG0sC:
     citations: 1
     title: Sparse shepherding control of large-scale multi-agent systems via Reinforcement Learning
     year: '2025'
   7Cfdq-MAAAAJ:u5HHmVD_uO8C:
-    citations: 8
+    citations: 9
     title: Hidden Markov models for stock market prediction
     year: '2023'
