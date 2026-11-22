@@ -8,6 +8,8 @@ cv:
   phone:
   website: https://luigicatello.it
   social_networks:
+    - network: ORCID
+      username: 0009-0005-5011-2531
     - network: GitHub
       username: louis1642
   custom_connections:
@@ -39,6 +41,7 @@ cv:
         summary:
         highlights:
           - "Thesis: Learning-based multiscale shepherding control for multi-agent complex systems"
+          - "Finalist, Best Master Theses Award, IEEE Control Systems Society (CSS) Italy Chapter, presented at Automatica.it 2026"
           - "Supervisors: Prof. Mario di Bernardo, Davide Salzano (PhD), Italo Napolitano"
           - "Final grade: 110/110 cum laude"
           - "GPA: 29.50/30"
