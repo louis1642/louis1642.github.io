@@ -26,6 +26,6 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a young engineer and PhD student based in Napoli.
-I work on complex, multi-agent systems, learning-based solutions, and cross-scale operators.
-I am driven by curiosity and enthusiasm for science, technology, and the endless possibility they offer.
+I'm a PhD student at Scuola Superiore Meridionale, Naples, working on how to control huge swarms and crowds through their individual agents, with guarantees.
+I build _certified bridges_ between the agent and population scales, combining control theory with physics-informed learning, neural operators and reinforcement learning.
+I'm supervised by Prof. Mario di Bernardo, Prof. Costantinos Siettos and Dr. Davide Salzano.
