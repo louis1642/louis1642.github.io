@@ -185,6 +185,8 @@ newsletter:
 # -----------------------------------------------------------------------------
 
 collections:
+  news:
+    output: false # all news items are inline one-liners, so no standalone pages
   projects:
     output: true
 
