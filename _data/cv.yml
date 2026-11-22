@@ -90,11 +90,11 @@ cv:
         position: Backend developer
         date:
         start_date: 2021-01
-        end_date: present
+        end_date: 2025-09
         location: Napoli, Italy
         summary:
         highlights:
-          - Backend developer for websites with databases
+          - Designed, built and maintained database-backed websites for clients
           - "Main languages used: PHP, MySQL"
     Publications:
       - title: "Sparse shepherding control of large-scale multi-agent systems via Reinforcement Learning"
