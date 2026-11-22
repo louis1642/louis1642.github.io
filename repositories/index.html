@@ -10,7 +10,7 @@
         "description": "Some of the repositories I have worked on.",
         "headline": "repositories",
         
-        "sameAs": ["https://scholar.google.com/citations?user=7Cfdq-MAAAAJ","https://www.linkedin.com/in/luigi-catello","https://github.com/louis1642"],
+        "sameAs": ["https://orcid.org/0009-0005-5011-2531","https://scholar.google.com/citations?user=7Cfdq-MAAAAJ","https://www.linkedin.com/in/luigi-catello","https://github.com/louis1642"],
         
         "name": "Luigi Catello",
         "@context": "https://schema.org"
@@ -206,12 +206,28 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{
+        },{id: "news-started-my-phd-in-modeling-and-engineering-risk-and-complexity-at-scuola-superiore-meridionale-napoli",
+          title: 'Started my PhD in Modeling and Engineering Risk and Complexity at Scuola Superiore...',
+          description: "",
+          section: "News",},{id: "news-presented-our-paper-on-sparse-shepherding-control-of-large-scale-multi-agent-systems-via-reinforcement-learning-at-the-european-control-conference-ecc-2026-in-iceland-more-on-linkedin",
+          title: 'Presented our paper on sparse shepherding control of large-scale multi-agent systems via Reinforcement...',
+          description: "",
+          section: "News",},{id: "news-my-master-s-thesis-was-a-finalist-for-the-best-master-theses-award-of-the-ieee-css-italy-chapter-presented-at-automatica-it-the-annual-conference-of-sidra-more-on-linkedin",
+          title: 'My Master’s thesis was a finalist for the Best Master Theses Award of...',
+          description: "",
+          section: "News",},{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
         handler: () => {
           window.open("mailto:%6C.%63%61%74%65%6C%6C%6F@%73%73%6D%65%72%69%64%69%6F%6E%61%6C%65.%69%74", "_blank");
+        },
+      },{
+        id: 'social-orcid',
+        title: 'ORCID',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://orcid.org/0009-0005-5011-2531", "_blank");
         },
       },{
         id: 'social-scholar',
