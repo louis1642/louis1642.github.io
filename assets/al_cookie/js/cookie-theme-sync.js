@@ -1,1 +1,35 @@
-!function(){function t(){var t=document.documentElement;"dark"===t.getAttribute("data-theme")?t.classList.add("cc--darkmode"):t.classList.remove("cc--darkmode")}function e(){if("function"==typeof MutationObserver){var e=document.documentElement;new MutationObserver(function(e){for(var n=0;n<e.length;n+=1)if("data-theme"===e[n].attributeName){t();break}}).observe(e,{attributes:!0,attributeFilter:["data-theme"]})}}document.addEventListener("DOMContentLoaded",function(){t(),e()})}();
+(function () {
+  function applyCookieThemeClass() {
+    var root = document.documentElement;
+    var theme = root.getAttribute("data-theme");
+
+    if (theme === "dark") {
+      root.classList.add("cc--darkmode");
+    } else {
+      root.classList.remove("cc--darkmode");
+    }
+  }
+
+  function setupObserver() {
+    if (typeof MutationObserver !== "function") {
+      return;
+    }
+
+    var root = document.documentElement;
+    var observer = new MutationObserver(function (mutations) {
+      for (var i = 0; i < mutations.length; i += 1) {
+        if (mutations[i].attributeName === "data-theme") {
+          applyCookieThemeClass();
+          break;
+        }
+      }
+    });
+
+    observer.observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    applyCookieThemeClass();
+    setupObserver();
+  });
+})();
