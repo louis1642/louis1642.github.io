@@ -103,8 +103,11 @@ for (const libraryKey of ["tikzjax", "tocbot"]) {
 }
 
 const gemfile = read("Gemfile");
-if (!/gem 'al_math', '= 1\.0\.1'/.test(gemfile)) {
-  failures.push("`Gemfile` should pin `al_math` to released version `1.0.1`.");
+// Only require that `al_math` is pinned to an exact released version, not a
+// particular one, so routine version bumps don't trip this check (ported from
+// upstream al-folio v1.2).
+if (!/gem 'al_math', '= \d+\.\d+\.\d+'/.test(gemfile)) {
+  failures.push("`Gemfile` should pin `al_math` to an exact released version (`= x.y.z`).");
 }
 if (/gem 'al_math',\s*:git =>/.test(gemfile)) {
   failures.push("`Gemfile` must not use git-branch pin for `al_math`; use released gem version.");
