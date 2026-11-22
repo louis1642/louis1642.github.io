@@ -3,8 +3,18 @@
 
 repo_description_lines_max: 2
 
-github_repos:
-  - SINCROgroup/Sparse-shepherding-control-of-large-scale-multi-agent-systems-via-Reinforcement-Learning
-  - louis1642/MATLAB_figures_scripts
-  - valentinomario/HMM-Stock-Market-Prediction
-  - louis1642/vicon_lane_detection
+# Repositories are shown in groups on /repositories/, in this order.
+github_repo_groups:
+  - title: Research code
+    description: Code behind my research and academic projects.
+    repos:
+      - SINCROgroup/Sparse-shepherding-control-of-large-scale-multi-agent-systems-via-Reinforcement-Learning
+      - louis1642/vicon_lane_detection
+      - louis1642/SimplicialComplex
+      - valentinomario/HMM-Stock-Market-Prediction
+  - title: Tools I built for my own workflow
+    description: Small tools I wrote because I needed them every day.
+    repos:
+      - louis1642/MATLAB_figures_scripts
+      - louis1642/pplane
+      - louis1642/zotero-trackpad-navigation

@@ -2,7 +2,7 @@
 layout: page
 permalink: /repositories/
 title: repositories
-description: Some of the repositories I have worked on.
+description: Code I write for research, and the tools I build to make my daily work easier.
 nav: true
 nav_order: 4
 ---
@@ -46,18 +46,25 @@ nav_order: 4
 {% endif %}
 {% endif %}
 
-{% if site.data.repositories.github_repos %}
+{% if site.data.repositories.github_repo_groups %}
+{% for group in site.data.repositories.github_repo_groups %}
+{% assign group_id = "github-repos-fallback-" | append: forloop.index %}
 
-## GitHub Repositories
+## {{ group.title }}
 
-<div class="repositories repositories-stats d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center" data-fallback-target="github-repos-fallback">
-  {% for repo in site.data.repositories.github_repos %}
+{% if group.description %}
+
+<p class="repo-group-description">{{ group.description }}</p>
+{% endif %}
+
+<div class="repositories repositories-stats d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center" data-fallback-target="{{ group_id }}">
+  {% for repo in group.repos %}
     {% include repository/repo.liquid repository=repo %}
   {% endfor %}
 </div>
 
-<div id="github-repos-fallback" class="repositories repositories-fallback d-none flex-wrap flex-md-row flex-column justify-content-start align-items-stretch">
-  {% for repo in site.data.repositories.github_repos %}
+<div id="{{ group_id }}" class="repositories repositories-fallback d-none flex-wrap flex-md-row flex-column justify-content-start align-items-stretch">
+  {% for repo in group.repos %}
   {% assign repo_parts = repo | split: "/" %}
   {% assign repo_owner = repo_parts[0] %}
   {% assign repo_name = repo_parts[1] %}
@@ -70,6 +77,7 @@ nav_order: 4
   </div>
   {% endfor %}
 </div>
+{% endfor %}
 {% endif %}
 
 <script>
